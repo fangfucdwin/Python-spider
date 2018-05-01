@@ -30,8 +30,8 @@ def parsePage(movies_data, html):
         print('')
       
 def main():
-    movieID = '4920389'
-    depth = 3
+    movieID = '4920389' #各个电影的ID号，该ID号为头号玩家
+    depth = 3 #爬取的评论页数
     start_url = 'https://movie.douban.com/subject/'+ movieID +'/comments?start=' 
     movies_data = []
     for i in range(depth):
@@ -44,9 +44,5 @@ def main():
             continue
     movies_datalist = pd.DataFrame(movies_data,index=range(1,len(movies_data)+1),columns=['用户','评分','评论'])
     print(movies_datalist)
-    fl = open('movies_datalist.csv',"w+")
-    for i in movies_data:
-        fl.write(i)
-        fl.write("\n")
-    fl.close()
+
 main()
