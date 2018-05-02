@@ -1,5 +1,4 @@
 import requests
-#from bs4 import BeautifulSoup
 import pandas as pd
 import re
 
@@ -43,6 +42,6 @@ def main():
         except:
             continue
     movies_datalist = pd.DataFrame(movies_data,index=range(1,len(movies_data)+1),columns=['用户','评分','评论'])
-    print(movies_datalist)
-
+    #print(movies_datalist) 
+    movies_datalist.to_csv("movies_datalist.csv",encoding='utf_8_sig') #csv格式保存在本地文件夹
 main()
